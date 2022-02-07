@@ -1,25 +1,42 @@
 
-// Todolist Constructor
+// TodoLoist Constructor
+function TodoList(){
+    this.tasksLists = {
 
-function todoList(){
-    this.Tasks = {
-
-    };
-    this.taskNo = 0;
+    }
+    this.taskNo = 0
 }
-todoList.prototype.addId = function(){
+    //Method for adding tasks
+TodoList.prototype.addTasks = function(task){
+    task.number = this.assignNo();
+    this.tasksLists[task.number] = task;
+};
+
+    //Method for assigning number
+TodoList.prototype.assignNo = function(){
     this.taskNo += 1;
     return this.taskNo;
+}
+    //Method For Delete Tasks
+TodoList.prototype.deleteTask = function(no){
+    if(this.tasksLists[no] === undefined){
+        return false;
+    }
+    delete this.tasksLists[no]
+    return true;
+}
+//Method For Finding Tasks
+TodoList.prototype.findTask = function(no){
+    if(this.tasksLists[no] !== undefined){
+        return this.tasksLists[no]
+    }
+    return false
 };
-todoList.prototype.addTask = function(task){
-        task.number = this.addId();
-        this.Tasks[task.number] = task;
-    };
 
-//Constructor For The Task
-function Task(task , dueDate , category){
+// Constructor For creating tasks
+function TasksTodo(task , time , cartegory){
     this.task = task;
-    this.dueDate = dueDate;
-    this.category = category;
+    this.time = time;
+    this.cartegory = cartegory;
 }
 
