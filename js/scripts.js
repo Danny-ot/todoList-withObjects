@@ -3,8 +3,8 @@
 function TodoList(){
     this.tasksLists = {
 
-    }
-    this.taskNo = 0
+    };
+    this.taskNo = 0;
 }
     //Method for adding tasks
 TodoList.prototype.addTasks = function(task){
@@ -16,7 +16,7 @@ TodoList.prototype.addTasks = function(task){
 TodoList.prototype.assignNo = function(){
     this.taskNo += 1;
     return this.taskNo;
-}
+};
     //Method For Delete Tasks
 TodoList.prototype.deleteTask = function(no){
     if(this.tasksLists[no] === undefined){
@@ -24,7 +24,7 @@ TodoList.prototype.deleteTask = function(no){
     }
     delete this.tasksLists[no]
     return true;
-}
+};
 //Method For Finding Tasks
 TodoList.prototype.findTask = function(no){
     if(this.tasksLists[no] !== undefined){
