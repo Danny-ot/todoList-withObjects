@@ -8,4 +8,9 @@ label{
 }
 .full-details{
     display: none;
+    margin-left: 37px;
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    font-size: large;
 }

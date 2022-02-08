@@ -7,7 +7,7 @@ function displayTask(todoList){
     const keys = Object.keys(todoList.tasksLists);
     keys.forEach(function(key){
         let task = todoList.findTask(key);
-        htmlString += "<li class = 'data' id = " + task.id + ">"+ task.task + "</li>";
+        htmlString += "<li class = 'data' id = " + task.number + ">"+ task.task + "</li>";
     })
     htmlElement.html(htmlString)
 } 
@@ -15,8 +15,23 @@ function displayTask(todoList){
 // Function For the Listener
 function attachListener(){
     $("ul#taskDisplay").on("click" , "li" , function(){
-        displayContent();
+        displayContent(this.id);
     })
+}
+
+// Function For Showing Full Details
+function displayContent(id){
+    let task = todoList.findTask(id);
+    
+    $(".full-details").show();
+    $("#task-details").html(task.task);
+    $("#time-display").html(task.time);
+    $("#cartegory-details").html(task.cartegory);
+    let button = $("#buttons");
+    button.empty();
+    button.append("<button class = 'btn btn-light deletebutton' id = "  + id + ">Delete</button>" );
+    
+
 }
 $("document").ready(function(){
     attachListener();
