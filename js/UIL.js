@@ -17,13 +17,19 @@ function attachListener(){
     $("ul#taskDisplay").on("click" , "li" , function(){
         displayContent(this.id);
     })
+
+    $("#buttons").on("click" , ".deletebutton" , function(){
+        todoList.deleteTask(this.id);
+        displayTask(todoList);
+        $(".full-details").hide();
+    })
 }
 
 // Function For Showing Full Details
 function displayContent(id){
     let task = todoList.findTask(id);
     
-    $(".full-details").show();
+    $(".full-details").toggle();
     $("#task-details").html(task.task);
     $("#time-display").html(task.time);
     $("#cartegory-details").html(task.cartegory);
