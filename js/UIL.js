@@ -1,5 +1,17 @@
 let todoList = new TodoList();
 
+// Function For Displaying Content
+function displayTask(todoList){
+    let htmlElement = $("#taskDisplay");
+    let htmlString = "";
+    const keys = Object.keys(todoList.tasksLists);
+    keys.forEach(function(key){
+        let task = todoList.findTask(key);
+        htmlString += "<li class = 'data' id = " + task.id + ">"+ task.task + "</li>";
+    })
+    htmlElement.html(htmlString)
+} 
+
 $("document").ready(function(){
     $("#form").submit(function(event){
         event.preventDefault();
@@ -9,5 +21,8 @@ $("document").ready(function(){
 
         let taskToBeDone = new TasksTodo(task , time , cartegory);
         todoList.addTasks(taskToBeDone);
+        displayTask(todoList)
+        $("#task-input").val("");
+        $("#time-input").val("");
     })
 })
