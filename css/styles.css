@@ -6,3 +6,6 @@ label{
     margin-top: 13px;
     cursor: pointer;
 }
+.full-details{
+    display: none;
+}

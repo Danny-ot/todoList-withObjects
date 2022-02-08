@@ -12,7 +12,14 @@ function displayTask(todoList){
     htmlElement.html(htmlString)
 } 
 
+// Function For the Listener
+function attachListener(){
+    $("ul#taskDisplay").on("click" , "li" , function(){
+        displayContent();
+    })
+}
 $("document").ready(function(){
+    attachListener();
     $("#form").submit(function(event){
         event.preventDefault();
         const task = $("#task-input").val();
